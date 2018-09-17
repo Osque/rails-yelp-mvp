@@ -1,0 +1,13 @@
+<h1 class= "text-center">Restaurants</h1>
+<div class= "text-center">
+<h3 class="btn btn-danger"> <%= link_to "New restaurant", new_restaurant_path %> </h3>
+
+<% @restaurants.each do |restau| %>
+<%= link_to restaurant_path(restau) do %>
+   <h2><%= restau.name %></h2>
+   <p><%= restau.category %></p>
+   <p class="btn btn-danger"><%= link_to "Add review", new_restaurant_review_path(restau) %></p>
+ <% end %>
+ <hr>
+<% end %>
+</div>

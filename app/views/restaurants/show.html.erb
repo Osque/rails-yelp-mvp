@@ -1,0 +1,19 @@
+<h1 class= "text-center"><%= @restaurant.name %></h1>
+
+<h2 class= "text-center"><%= @restaurant.category %></h2>
+
+<p class= "text-center"><%= @restaurant.address %></p>
+<p class= "text-center"><%= @restaurant.phone_number %></p>
+<p class= "text-center">Reviews from clients</p>
+<ul class= "text-center">
+ <%@restaurant.reviews.each do |review| %>
+ <li><p> <%= review.content %></p>
+   <p> <%= review.rating %></p></li>
+ <%end %>
+</ul>
+
+<%= link_to "Edit restaurant", edit_restaurant_path(@restaurant) %>
+
+<%= link_to "delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= link_to "Home", restaurants_path %>
